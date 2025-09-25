@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REZZ XITERZ - Official Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0014 0%, #1a0029 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            background: rgba(20, 0, 30, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.4);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #8a2be2;
+            box-shadow: 0 0 25px #8a2be2;
+            transition: transform 0.4s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.08) rotate(5deg);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .title {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px #8a2be2, 0 0 25px #8a2be2;
+            letter-spacing: 3px;
+            font-weight: 800;
+            background: linear-gradient(to right, #8a2be2, #e0b0ff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2;
+            }
+            100% {
+                text-shadow: 0 0 15px #8a2be2, 0 0 30px #8a2be2, 0 0 40px #8a2be2;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #d4c2ec;
+            text-shadow: 0 0 5px #8a2be2;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 25px;
+            background: rgba(30, 0, 50, 0.9);
+            border: 2px solid #8a2be2;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: rgba(138, 43, 226, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .btn i {
+            font-size: 1.6rem;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .all-produk {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        .all-produk .btn {
+            background: linear-gradient(135deg, #8a2be2, #6a0dad);
+            font-size: 1.4rem;
+            padding: 20px 30px;
+        }
+
+        .all-produk .btn:hover {
+            background: linear-gradient(135deg, #6a0dad, #8a2be2);
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            color: #b19cd9;
+            text-shadow: 0 0 5px #8a2be2;
+            padding: 15px;
+            border-top: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        /* Efek partikel latar belakang */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(138, 43, 226, 0.6);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Efek cahaya di sudut */
+        .corner-light {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, rgba(138, 43, 226, 0) 70%);
+            z-index: 0;
+        }
+
+        .top-left {
+            top: -150px;
+            left: -150px;
+        }
+
+        .bottom-right {
+            bottom: -150px;
+            right: -150px;
+        }
+
+        /* Responsif */
+        @media (max-width: 850px) {
+            .container {
+                padding: 30px 20px;
+                max-width: 95%;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+                padding: 0 10px;
+            }
+            
+            .btn {
+                font-size: 1.1rem;
+                padding: 16px 20px;
+            }
+            
+            .btn i {
+                font-size: 1.4rem;
+                margin-right: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+            
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .btn {
+                font-size: 1rem;
+                padding: 14px 16px;
+            }
+            
+            .btn i {
+                font-size: 1.2rem;
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="corner-light top-left"></div>
+    <div class="corner-light bottom-right"></div>
+    
+    <div class="container">
+        <div class="logo">
+            <img src="https://i.postimg.cc/nr4bkjdz/file-00000000225861f6ba05455107829e39.png" alt="REZZ XITERZ Logo">
+        </div>
+        
+        <h1 class="title">REZZ XITERZ</h1>
+        
+        <p class="subtitle">ALL MEDIA SOSIAL REZZ XITERZ DI BAWAH | KALO MISAL ADA BUG BISA LAPOR KE ADMIN</p>
+        
+        <div class="buttons">
+            <a href="https://youtube.com/@rezzxiterz2?si=DWoXfJxstXOEc3mj" class="btn" target="_blank">
+                <i class="fab fa-youtube"></i> YOUTUBE
+            </a>
+            
+            <a href="https://whatsapp.com/channel/0029Vb6KSxx3LdQSxDHuCl3C" class="btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> SALURAN
+            </a>
+            
+            <a href="https://www.tiktok.com/@rezzxiterz2?_t=ZS-900mXsSBYdb&_r=1" class="btn" target="_blank">
+                <i class="fab fa-tiktok"></i> TIKTOK
+            </a>
+            
+            <a href="https://wa.me/6285808905037" class="btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> WHATSAPP
+            </a>
+            
+            <a href="https://rezzxiterz9999.vercel.app/" class="btn" target="_blank">
+                <i class="fas fa-globe"></i> WEBSITE NEW
+            </a>
+        </div>
+        
+        <div class="all-produk">
+            <a href="https://lynk.id/rezzxiterz" class="btn" target="_blank">
+                <i class="fas fa-shopping-bag"></i> ALL PRODUK REZZ
+            </a>
+        </div>
+        
+        <div class="copyright">
+            COPYRIGHT @REZZXITERZ
+        </div>
+    </div>
+
+    <script>
+        // Membuat efek partikel di latar belakang
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 40;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Ukuran acak
+                const size = Math.random() * 8 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posisi acak
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Warna dengan variasi
+                const opacity = Math.random() * 0.6 + 0.2;
+                const hue = 270 + Math.random() * 30 - 15; // Variasi sekitar ungu
+                particle.style.background = `hsla(${hue}, 100%, 65%, ${opacity})`;
+                
+                // Animasi dengan durasi acak
+                const duration = Math.random() * 25 + 15;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>
